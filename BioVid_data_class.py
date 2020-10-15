@@ -40,6 +40,8 @@ main_folder_list.sort()
 for i, main_folder in enumerate(main_folder_list):
     # if i < 45:
     #     continue
+    if i > 44:
+        break
     if main_folder in no_exp:
         # print('Not expressive person')
         continue
@@ -63,8 +65,9 @@ for i, main_folder in enumerate(main_folder_list):
         for id_frame in frames:
             img_name = '{}_0{}.jpg'.format(folder, id_frame)
             img_or = os.path.join(folder_path, img_name)
-            os.symlink(img_or, os.path.join(out_path, sets, parts[1]))
+            os.symlink(img_or, os.path.join(out_path, sets, parts[1], img_name))
             # img = Image.open(img_or).convert('RGB')
             # img = img.resize((512,512), Image.BILINEAR)
             # img.save(os.path.join(out_path, img_name))
             # print('      {}'.format(img_name))
+print('DONE')
